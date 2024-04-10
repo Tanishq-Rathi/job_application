@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Job Application Form</h1>
+        <form method="post" id="jobForm">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="current-ctc-container">
+                <label for="id_current_ctc">Current CTC:</label>
+                <input type="number" name="current_ctc" id="id_current_ctc">
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script src="{% static 'js/job.js' %}"></script>
+</body>
+</html>
